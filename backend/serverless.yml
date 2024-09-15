@@ -8,8 +8,8 @@ plugins:
   - serverless-webpack
   - serverless-iam-roles-per-function
   - serverless-reqvalidator-plugin
+#  - serverless-plugin-tracing
   - serverless-aws-documentation
-  - serverless-plugin-tracing
 
 provider:
   name: aws
@@ -21,10 +21,10 @@ provider:
   tracing:
     lambda: true
     apiGateway: true
-  
-#  logs:
-#    restApi:
-#      role: arn:aws:iam::043309350851:role/rest-api-cloudwatch-role
+
+  logs:
+    restApi:
+      role: arn:aws:iam::892517209093:role/rest-api-cloudwatch-role
 
   environment:
     TODOS_TABLE: TodosTable-${self:provider.stage}
@@ -246,7 +246,7 @@ resources:
         ResponseType: DEFAULT_5XX
         RestApiId:
           Ref: ApiGatewayRestApi
-    
+
     RequestBodyValidator:
       Type: 'AWS::ApiGateway::RequestValidator'
       Properties:
