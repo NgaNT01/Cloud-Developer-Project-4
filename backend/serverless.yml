@@ -22,16 +22,16 @@ provider:
     lambda: true
     apiGateway: true
   
-  logs:
-    restApi:
-      role: arn:aws:iam::043309350851:role/rest-api-cloudwatch-role
+#  logs:
+#    restApi:
+#      role: arn:aws:iam::043309350851:role/rest-api-cloudwatch-role
 
   environment:
     TODOS_TABLE: TodosTable-${self:provider.stage}
     TODOS_BY_USER_INDEX: TodosByUserIndex
     ATTACHMENT_S3_BUCKET: udacity-serverless-todo-images-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
-    AUTH_JWKS_URL: 'https://dev-53fov3gggm5vx5dk.us.auth0.com/.well-known/jwks.json'
+    AUTH_JWKS_URL: 'https://dev-1dyos24uv6uiu8vv.us.auth0.com/.well-known/jwks.json'
 
 custom:
   documentation:
